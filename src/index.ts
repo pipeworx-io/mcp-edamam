@@ -235,10 +235,39 @@ async function nutritionAnalysis(ingredient: string, pair: Pair) {
     dietLabels?: string[];
     healthLabels?: string[];
     totalNutrients?: Record<string, { quantity?: number; unit?: string }>;
+    ingredients?: Array<{
+      parsed?: Array<{ weight?: number; nutrients?: Record<string, { quantity?: number; unit?: string }> }>;
+    }>;
   };
 
+  // Some Nutrition Analysis plans aggregate to top-level calories/totalNutrients;
+  // others only return the per-ingredient breakdown (ingredients[].parsed[].nutrients).
+  // Fall back to summing the per-ingredient nutrients + weights so both shapes work.
+  let totals = data.totalNutrients ?? {};
+  let calories: number | null = data.calories ?? null;
+  let weight: number | null = data.totalWeight ?? null;
+  if (Object.keys(totals).length === 0) {
+    const agg: Record<string, { quantity: number; unit?: string }> = {};
+    let w = 0;
+    for (const ing of data.ingredients ?? []) {
+      for (const p of ing.parsed ?? []) {
+        if (typeof p.weight === 'number') w += p.weight;
+        for (const [k, v] of Object.entries(p.nutrients ?? {})) {
+          if (v && typeof v.quantity === 'number') {
+            if (!agg[k]) agg[k] = { quantity: 0, unit: v.unit };
+            agg[k].quantity += v.quantity;
+          }
+        }
+      }
+    }
+    if (Object.keys(agg).length > 0) {
+      totals = agg;
+      if (weight == null) weight = w || null;
+      if (calories == null && agg.ENERC_KCAL) calories = agg.ENERC_KCAL.quantity;
+    }
+  }
+
   const nutrients: Record<string, string> = {};
-  const totals = data.totalNutrients ?? {};
   for (const [key, friendly] of Object.entries(NUTRIENT_NAMES)) {
     const n = totals[key];
     if (n && typeof n.quantity === 'number') {
@@ -247,8 +276,8 @@ async function nutritionAnalysis(ingredient: string, pair: Pair) {
   }
 
   return {
-    calories: data.calories ?? null,
-    weight_g: data.totalWeight ?? null,
+    calories: calories != null ? Math.round(calories) : null,
+    weight_g: weight != null ? Math.round(weight) : null,
     diet_labels: data.dietLabels ?? [],
     health_labels: data.healthLabels ?? [],
     nutrients,

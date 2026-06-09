@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-edamam",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Edamam MCP — wraps three Edamam APIs in one pack:",
   "type": "module",
   "main": "src/index.ts",
