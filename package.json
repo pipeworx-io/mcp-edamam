@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-edamam",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Edamam MCP — wraps three Edamam APIs in one pack:",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-edamam": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "edamam"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-edamam"
+    "url": "git+https://github.com/pipeworx-io/mcp-edamam.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-0e874d4dcd7a94d40f435da86b614b27ecf6236770617800f5fa976c0a5e1dc3",
+    "sourceCommit": "76aa8f5d9b5dc2f665563030647c68e661478864"
   }
 }
