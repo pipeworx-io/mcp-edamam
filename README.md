@@ -1,8 +1,8 @@
 # mcp-edamam
 
-Edamam MCP — wraps three Edamam APIs in one pack:
+Edamam MCP — wraps three Edamam APIs in one pack: - Nutrition Analysis API (nutrition_analysis) - Recipe Search API v2 (search_recipes) - Food Database API v2 (search_food)
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1683+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1855+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
 
 ## Tools
 
@@ -56,7 +56,7 @@ directly, instead of just this one's:
 }
 ```
 
-Both URLs reach the same gateway and the same 1683+ data sources. The
+Both URLs reach the same gateway and the same 1855+ data sources. The
 only difference is which pack's tools are listed **directly**; `ask_pipeworx`
 reaches all of them from either one.
 
