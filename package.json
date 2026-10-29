@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-edamam",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Edamam MCP — wraps three Edamam APIs in one pack: - Nutrition Analysis API (nutrition_analysis) - Recipe Search API v2 (search_recipes) - Food Database API v2 (search_food)",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-edamam": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "edamam"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-edamam.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/edamam",
   "pipeworx": {
-    "sourceHash": "v1-61684d6ef1793384ff101429ce7dd618d24b2bf352620f531b22b260dc78ae2b",
-    "sourceCommit": "29fb434ca65fe0f61191f19c3502f583f5fb99d7"
+    "mode": "gateway",
+    "slug": "edamam",
+    "gatewaySlug": "edamam",
+    "sourceHash": "v1-c374837bc362cfe0e196e57c548b07795697ecef85d1bb86137ccdabc2eefeda",
+    "sourceCommit": "bb047243cf27f32453103de186b8e6a8b6a1ce79"
   }
 }

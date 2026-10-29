@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/edamam",
   "title": "Edamam",
   "description": "Edamam MCP — wraps three Edamam APIs in one pack: - Nutrition Analysis API (nutrition_analysis)…",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "websiteUrl": "https://pipeworx.io/packs/edamam",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-edamam",
