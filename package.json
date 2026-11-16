@@ -1,7 +1,7 @@
 {
   "name": "@pipeworx/mcp-edamam",
-  "version": "0.2.1",
-  "description": "Edamam MCP — wraps three Edamam APIs in one pack: - Nutrition Analysis API (nutrition_analysis) - Recipe Search API v2 (search_recipes) - Food Database API v2 (search_food)",
+  "version": "0.2.2",
+  "description": "Unofficial Edamam MCP — wraps three Edamam APIs in one pack: - Nutrition Analysis API (nutrition_analysis) - Recipe Search API v2 (search_recipes) - Food Database API v2 (search_food)",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "edamam",
     "gatewaySlug": "edamam",
-    "sourceHash": "v1-1b3a0ea0fd5110b910a2a383ec1554d208f150573479bf8ffd357a61cbc13d6f",
-    "sourceCommit": "e707a4bb6209f432984c0a83bf64b3138130db89"
+    "sourceHash": "v1-e4ef2278fa3703396ba2f2ffd1a9562e7724891bc60c2564ff93183b02d2ade0",
+    "sourceCommit": "874331b0c46b151f9264bd14840631427a7721c1"
   }
 }
